@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new's Testing Playground</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 shadow">
+    <div class="container">
+        <a class="navbar-brand" href="#">The Testing Playground</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto nav-pills" id="sandbox-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active text-white" id="forms-tab" data-bs-toggle="pill"
+                            data-bs-target="#forms-section" type="button" role="tab">Forms
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="dynamic-tab" data-bs-toggle="pill"
+                            data-bs-target="#dynamic-section" type="button" role="tab">Dinamic
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="advanced-tab" data-bs-toggle="pill"
+                            data-bs-target="#advanced-section" type="button" role="tab">Other
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container pb-5 tab-content" id="sandbox-tabs-content">
+
+    <div class="tab-pane fade show active" id="forms-section" role="tabpanel">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">Basic Form Elements</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Input Field</label>
+                            <input type="text" id="form-input" class="form-control" placeholder="Input Field">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label d-block">Radio Buttons</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="form-check" id="radio1" value="A">
+                                <label class="form-check-label" for="radio1">Radio A</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="form-check" id="radio2" value="B">
+                                <label class="form-check-label" for="radio2">Radio B</label>
+                            </div>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="toggle-switch">
+                            <label class="form-check-label">Toggle Switch Checkbox</label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dropbox</label>
+                            <select class="form-select" id="experience-select">
+                                <option selected disabled>Choose an options...</option>
+                                <option value="junior">Option A</option>
+                                <option value="mid">Option B</option>
+                                <option value="senior">Option C</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Upload File</label>
+                            <input class="form-control" type="file" id="file-upload">
+                        </div>
+                        <button class="btn btn-success w-100" id="submit-btn"
+                                onclick="alert('Form successfully uploaded!')">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="dynamic-section" role="tabpanel">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-warning text-dark">Dynamic Elements & API</div>
+                    <div class="card-body text-center">
+                        <p class="text-muted small">Tests explicit waits.</p>
+                        <div id="delayed-zone" class="mb-4" style="min-height: 40px;">
+                        </div>
+                        <hr>
+                        <button id="load-data-btn" class="btn btn-outline-primary mb-3">Slow Data Search</button>
+                        <div id="spinner" class="spinner-border spinner-border-sm d-none mb-2"></div>
+                        <ul id="server-list" class="list-group text-start"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-danger text-white">Modal Windows</div>
+                    <div class="card-body text-center d-flex flex-column justify-content-center">
+                        <p class="text-muted small">Click on the button to open a pop-up window..</p>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                            Open Modal Window
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="advanced-section" role="tabpanel">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-info text-white">Drag and Drop</div>
+                    <div class="card-body">
+                        <div id="drag-source" class="p-3 mb-3 bg-secondary text-white text-center rounded"
+                             draggable="true">
+                            Drag Zone
+                        </div>
+                        <div id="drop-target"
+                             class="p-4 border-2 border-dashed border-secondary text-center rounded text-muted">
+                            Drop Zone
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-secondary text-white">Shadow DOM</div>
+                    <div class="card-body">
+                        <p class="text-muted small">Elements inside do Shadow DOM require special locators.</p>
+                        <div id="shadow-host"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-dark text-white">IFrame Testing</div>
+                    <div class="card-body">
+                        <iframe srcdoc="<html><body style='font-family:sans-serif; padding:10px;'><h6>Dentro do IFrame</h6><button id='iframe-btn' onclick='this.innerText=&quot;Clicado!&quot;'>Clica em mim</button></body></html>"
+                                class="w-100 border rounded"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                        <span>Data Table</span>
+                        <input type="text" class="form-control form-control-sm w-25" placeholder="Procurar...">
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>D</th>
+                            </tr>
+                            </thead>
+                            <tbody id="table-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <nav>
+                            <ul class="pagination pagination-sm justify-content-center mb-0" id="table-pagination"></ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Label A</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modal-save-btn">Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
