@@ -18,5 +18,5 @@ pip install flask
 
 ### 3. Run the Sandbox
 ```bash
-python app.py
+python playground.py
 ```
